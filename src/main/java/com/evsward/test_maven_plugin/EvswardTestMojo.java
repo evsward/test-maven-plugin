@@ -19,23 +19,11 @@ public class EvswardTestMojo extends AbstractMojo {
      * @readonly
      */
     private MavenProject project;
-    /**
-     * @parameter expression="${buildinfo.prefix}" 
-     * default-value="+++"
-     */
-    private String prefix;
 
     public void execute() throws MojoExecutionException, MojoFailureException {
         Build build = project.getBuild();
-        String outputDirectory = build.getOutputDirectory();
-        String sourceDirectory = build.getSourceDirectory();
-        String testOutputDirectory = build.getTestOutputDirectory();
-        String testSourceDirectory = build.getTestSourceDirectory();
-        getLog().info("\n==========================\nProject build info:");
-        String[] info = { outputDirectory, sourceDirectory, testOutputDirectory, testSourceDirectory };
-        for (String item : info) {
-            getLog().info("\t" + prefix + "   " + item);
-        }
+        getLog().info("\n=========test here=================\n");
+        getLog().info("build: " + build.getDefaultGoal() + build.getDirectory() + build.getFinalName());
         getLog().info("=======================");
     }
 
